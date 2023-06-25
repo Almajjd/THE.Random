@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konfirmasi Pembayaran - Berhasil</title>
+  <style>
+    /* CSS styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .success-message {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-to-home {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-to-home a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Konfirmasi Pemesanan - Berhasil</h1>
+    <p>Terima kasih telah melakukan pemesanan. Pemesanan Anda telah berhasil dikonfirmasi.</p>
+    <br>
+    <h4> Silahkan Melakukan Pembayaran Pada Nomor Dibawah dengan<p id="total-biaya"></h6> <br><h1>782 0838 4594 6026</p></h1>
+    <div class="success-message">
+      <p>Setekah Melakukan Pembayaran, Silakan tunggu barang Anda akan segera dikirim.</p>
+    </div>
+    <div class="back-to-home">
+      <p>Kembali ke <a href="dagangan.html"> Halaman Belanja</a></p>
+    </div>
+  </div>
+  <ul id="daftar-item">
+    <!-- Daftar item keranjang akan ditambahkan di sini menggunakan JavaScript -->
+  </ul>
+
+
+  <script>
+    // Mendapatkan data keranjang dari penyimpanan lokal
+    let cart = localStorage.getItem('cart');
+
+    // Mengecek apakah keranjang kosong atau belum
+    if (cart) {
+      cart = JSON.parse(cart);
+    } else {
+      cart = [];
+    }
+
+    // Fungsi untuk menampilkan daftar keranjang dan total harga belanjaan
+    function tampilkanKeranjang() {
+      const daftarItem = document.getElementById('daftar-item');
+      const totalBiaya = document.getElementById('total-biaya');
+
+      daftarItem.innerHTML = '';
+
+      
+
+      // Menghitung total harga belanjaan
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      totalBiaya.textContent = `Total Harga: Rp ${total}`;
+    }
+
+    // Fungsi untuk menghapus barang dari keranjang
+    function hapusDariKeranjang(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      tampilkanKeranjang();
+    }
+
+    // Memanggil fungsi tampilkanKeranjang saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', tampilkanKeranjang);
+  </script>
+</body>
+</html>

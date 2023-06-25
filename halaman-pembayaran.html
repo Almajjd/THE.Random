@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keranjang Belanja</title>
+  <style>
+    /* CSS styling */
+
+    /* ... */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #ee4d2d;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    button[type="submit"] {
+      background-color: #ee4d2d;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #daftar-item {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #daftar-item li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    #daftar-item li span {
+      flex: 1;
+    }
+
+    #daftar-item li button {
+      background-color: #ff5252;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #total-biaya {
+      font-weight: bold;
+      text-align: right;
+    }
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+  </header>
+
+  <div class="container">
+    <div class="product">
+        <ul id="daftar-item">
+            <!-- Daftar item keranjang akan ditambahkan di sini menggunakan JavaScript -->
+          </ul>
+        
+          <p id="total-biaya"></p>
+      </div>
+    </div>
+
+    <!-- Tambahkan produk lain yang dibeli oleh pengguna di sini -->
+
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Checkout</title>
+  <style>
+    /* CSS styling */
+    /* ... */
+  </style>
+</head>
+<body>
+
+  <ul id="daftar-item">
+    <!-- Daftar item keranjang akan ditambahkan di sini menggunakan JavaScript -->
+  </ul>
+
+  <p id="total-biaya"></p>
+  <div class="container">
+    <h2>Checkout</h2>
+
+    <form id="checkout-form">
+      <div class="form-group">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" placeholder="Masukkan nama" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Alamat:</label>
+        <textarea id="address" name="address" placeholder="Masukkan alamat" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="payment-method">Metode Pembayaran:</label>
+        <select id="payment-method" name="payment-method">
+          <option value="cash">Cash on Delivery</option>
+          <option value="credit-card">Kartu Kredit</option>
+        </select>
+      </div>
+      <div class="category-filter">
+        <label for="shipping-method" placeholder="Metode">Metode Pengiriman</label>
+        <select>
+          <option value="">Metode Pengiriman</option>
+          <option value="J&T">J&T</option>
+          <option value="JNE">JNE</option>
+          <option value="Sipecat">Sipecat</option>
+          <option value="Lion Parcel">Lion Parcel</option>
+          <option value="Ambil Ditempat">Ambil Ditempat</option>
+        </select>
+      </div>
+
+      <button type="submit">Konfirmasi Pembelian</button>
+    </form>
+  </div>
+
+  <script>
+    // Skrip JavaScript untuk pengiriman formulir checkout
+    const checkoutForm = document.getElementById('checkout-form');
+
+    checkoutForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Mencegah pengiriman formulir secara default
+
+      // Simulasi logika pengiriman checkout
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const paymentMethod = document.getElementById('payment-method').value;
+
+      // Ganti dengan logika pengiriman checkout yang sesuai di sini
+      console.log('Detail Pembelian:');
+      console.log('Nama: ' + name);
+      console.log('Alamat: ' + address);
+      console.log('Metode Pembayaran: ' + paymentMethod);
+
+      alert('Pembelian berhasil! Terima kasih telah berbelanja.');
+
+      // Redirect ke halaman home setelah checkout berhasil
+      window.location.href = 'end.html';
+    });
+  </script>
+  <ul id="daftar-item">
+    <!-- Daftar item keranjang akan ditambahkan di sini menggunakan JavaScript -->
+  </ul>
+
+  <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js?public_key=uGkbQz2tHAgXLtIFE"></script>
+
+  <script>
+    // Mendapatkan data keranjang dari penyimpanan lokal
+    let cart = localStorage.getItem('cart');
+
+    // Mengecek apakah keranjang kosong atau belum
+    if (cart) {
+      cart = JSON.parse(cart);
+    } else {
+      cart = [];
+    }
+
+    // Fungsi untuk menampilkan daftar keranjang dan total harga belanjaan
+    function tampilkanKeranjang() {
+      const daftarItem = document.getElementById('daftar-item');
+      const totalBiaya = document.getElementById('total-biaya');
+
+      daftarItem.innerHTML = '';
+
+      // Menampilkan daftar barang di keranjang
+      cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <span>${item.product} - Rp ${item.price}</span>
+          <button onclick="hapusDariKeranjang(${index})">Hapus</button>
+        `;
+        daftarItem.appendChild(listItem);
+      });
+
+      // Menghitung total harga belanjaan
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      totalBiaya.textContent = `Total Harga: Rp ${total}`;
+    }
+
+    // Fungsi untuk menghapus barang dari keranjang
+    function hapusDariKeranjang(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      tampilkanKeranjang();
+    }
+
+    // Memanggil fungsi tampilkanKeranjang saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', tampilkanKeranjang);
+
+
+    
+
+    // Mengirim notifikasi email menggunakan EmailJS
+    const templateParams = {
+        from_name: name,
+        from_email: 'a.majid@student.ppns.ac.id', // Masukkan alamat email pengirim jika diperlukan
+        message: `Nama: ${name}\nAlamat: ${address}\nMetode Pembayaran: ${paymentMethod}`
+      };
+
+      // Mengirim notifikasi email menggunakan EmailJS
+      emailjs.send('service_vo8b5pl', 'template_6eo6mfo', templateParams, 'YOUR_USER_ID')
+        .then(function(response) {
+          console.log('Email terkirim!', response.status, response.text);
+          alert('Pembelian berhasil! Terima kasih telah berbelanja.');
+
+          // Redirect ke halaman home setelah checkout berhasil
+          window.location.href = 'end.html';
+        }, function(error) {
+          console.log('Gagal mengirim email:', error);
+          alert('Terjadi kesalahan saat mengirim notifikasi. Silakan coba lagi.');
+        });    
+  </script>
+</body>
+</html>

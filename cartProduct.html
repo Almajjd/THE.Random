@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keranjang Belanja</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #daftar-item {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #daftar-item li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #d8ffdb;
+      margin-bottom: 10px;
+    }
+
+    #daftar-item li span {
+      flex: 1;
+    }
+
+    #daftar-item li button {
+      background-color: #ff5252;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #total-biaya {
+      font-weight: bold;
+      text-align: right;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button a {
+      color: #fff;
+      text-decoration: none;
+    }
+    body{
+      background-image: url("login0.png") ;
+      height: 1000px;
+      width: 1600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keranjang Belanja</h1>
+
+  <ul id="daftar-item">
+    <!-- Daftar item keranjang akan ditambahkan di sini menggunakan JavaScript -->
+  </ul>
+
+  <p id="total-biaya"></p>
+  <p>
+    <button type="button"><a href="halaman-pembayaran.html">Checkout</a></button>
+  </p>
+
+  <script>
+    // Mendapatkan data keranjang dari penyimpanan lokal
+    let cart = localStorage.getItem('cart');
+
+    // Mengecek apakah keranjang kosong atau belum
+    if (cart) {
+      cart = JSON.parse(cart);
+    } else {
+      cart = [];
+    }
+
+    // Fungsi untuk menampilkan daftar keranjang dan total harga belanjaan
+    function tampilkanKeranjang() {
+      const daftarItem = document.getElementById('daftar-item');
+      const totalBiaya = document.getElementById('total-biaya');
+
+      daftarItem.innerHTML = '';
+
+      // Menampilkan daftar barang di keranjang
+      cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <span>${item.product} - Rp ${item.price}</span>
+          <button onclick="hapusDariKeranjang(${index})">Hapus</button>
+        `;
+        daftarItem.appendChild(listItem);
+      });
+
+      // Menghitung total harga belanjaan
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      totalBiaya.textContent = `Total Harga: Rp ${total}`;
+    }
+
+    // Fungsi untuk menghapus barang dari keranjang
+    function hapusDariKeranjang(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      tampilkanKeranjang();
+    }
+
+    // Memanggil fungsi tampilkanKeranjang saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', tampilkanKeranjang);
+  </script>
+</body>
+</html>

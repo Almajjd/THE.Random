@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styling */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .center button {
+      background-color: #ee4d2d;
+      color: #fff;
+      border: none;
+      padding: 10px 100px;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .center button a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .slideshow-container {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+ }
+
+ .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+ }
+
+ .slide.active {
+  opacity: 1;
+ }
+
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <img class="slide" src="slide1.jpeg"  alt="Slide 1">
+    <img class="slide" src="slide2.jpeg" alt="Slide 2">
+    
+  </div>
+  
+  <div class="center">
+    <button type="button"> <a href="halamanBelanja.html">Belanja</a></button>
+
+  </div>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+function showSlide(slideIndex) {
+  slides.forEach((slide) => {
+    slide.classList.remove('active');
+  });
+
+  slides[slideIndex].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Mulai slide otomatis
+setInterval(nextSlide, 3000);
+
+  </script>
+  
+</body>
+</html>
